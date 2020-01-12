@@ -1,6 +1,7 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import {filterImageFromURL, deleteLocalFiles} from './util/util';
+import { config } from './config/config';
 
 (async () => {
 
@@ -27,13 +28,26 @@ import {filterImageFromURL, deleteLocalFiles} from './util/util';
   //   the filtered image file [!!TIP res.sendFile(filteredpath); might be useful]
 
   /**************************************************************************** */
+  
+  const cfg = config; 
+
   app.get("/filteredimage", async (req, res) => {
     const imageUrl = req.query.image_url;
+
+    let apiKey = req.header("X-API-Key");
+
+    if(!apiKey || apiKey != cfg.api_key) {
+     return res.status(401).send({
+       auth: false, 
+       message: 'Invalid API Key.'
+      }); 
+    }
 
     // check imageUrl is valid
     if (!imageUrl) {
       return res.status(400).send({
-        message: "The image url is required or malformed"
+        auth: true, 
+        message: "The image url is required or malformed."
       });
     }
 
