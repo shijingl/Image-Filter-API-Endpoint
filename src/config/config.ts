@@ -1,3 +1,3 @@
 export const config = {
-    "api_key": "test123"
+    "api_key": process.env.API_KEY
 }
