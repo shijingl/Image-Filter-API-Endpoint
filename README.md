@@ -11,4 +11,4 @@ Udagram is a simple cloud application. It allows users to register and log into 
 `http://image-filter-dns3.us-east-2.elasticbeanstalk.com/`
 
 ### Authentication
-
+Authentication is implemented using "X-api-key".
