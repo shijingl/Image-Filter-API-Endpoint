@@ -52,7 +52,6 @@ import { config } from './config/config';
     }
 
     try {
-      console;
       const filteredImageFromURL = await filterImageFromURL(imageUrl);
       res.sendFile(filteredImageFromURL, () =>
         deleteLocalFiles([filteredImageFromURL])
