@@ -8,6 +8,7 @@ Udagram is a simple cloud application. It allows users to register and log into 
 2. `npm run dev`
 
 ### Elastic Beanstalk Endpoint
+# Note: this eb endpoint is already terminted on June 4th, 2020 to save cost. 
 `http://image-filter-dns3.us-east-2.elasticbeanstalk.com/`
 
 ### Authentication
